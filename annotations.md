@@ -121,3 +121,42 @@ func someFunction() (string, int) {
 - O pacote main é o principal como o nome já diz. Podendo ser utilizado com varios arquivos .go neste mesmo pacote, a diferença está na forma de rodar, os arquivos precisam ser declarados no `go run main.go xxx.go yyy.go` ou na raiz `go run .`.
 - Novos pacotes podem ser criado com outras pastas com o nome do pacote.
 - Para fazer o import de uma função ou variáveis de um pacote diferente, basta declarar o nome da função como pascal case.
+
+### Structs
+- Funciona de forma semelhante do C
+- Usado como forma de definir multiplos tipos de dados
+- Alternativa para classes em Go
+- Os campos da struct seguem o padrão de nomenclatura para export de dados, pascal case para usar fora do pacote.
+- Ex: 
+```
+type UserData struct {
+	firstName       string
+	lastName        string
+	email           string
+	numberOfTickets uint
+}
+```
+- Como adicionar valores para struct. Primeiro segue como o nome do campo da struct, segundo como o valor, ex:
+```
+var userData = UserData {
+		firstName:       firstName,
+		lastName:        lastName,
+		email:           email,
+		numberOfTickets: userTickets,
+	}
+```
+- Ou de forma simplificada
+```
+var userData = UserData {
+		firstName,
+		lastName,
+		email,
+		userTickets,
+	}
+```
+- Ou adicionar apenas no campo como se fosse um set
+```
+var userData = UserData{}
+	userData.email = "email"
+	userData.firstName = "Name"
+```
